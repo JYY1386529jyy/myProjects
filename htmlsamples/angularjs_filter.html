@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="description" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>
+      angular filter
+    </title>
+	<link href="css/bootstrap.min.css" rel="stylesheet"> 
+   </head>
+  
+	<body ng-controller="myController">
+    	<form class="form-horizontal" role="form">
+        	<div class="form-group">
+            	<label for="searchname" class="col-sm-2 control-label">名称：</label>
+                <div class="col-sm-10">
+                	<input type="text" class="form-control" id="searchname" placeholder="请输入搜索名称" ng-model="searchname"/>
+                	
+                </div>
+            
+            </div>
+            
+            <div class="form-group">
+            	<div class="col-sm-offset-2 col-sm-10">
+                	<button type="button" class="btn btn-default" ng-click="searchBtn()">搜索</button>
+                </div>
+            
+            </div>
+        
+        </form>
+        
+        <span>The result is:</span>
+        <table class="table table-condensed table-bordered">
+        	<thead>
+            	<tr>
+                	<th>名称</th>
+                    <th>年龄</th>
+                </tr>
+                <tbody>
+                	<tr ng-repeat="i in items|searchFilter:searchname">
+                    	<th>{{i.name}}</th>
+                   	    <th>{{i.age}}</th>
+                    
+                    </tr>
+                
+                </tbody>
+            </thead>
+        
+        
+        </table>
+    	
+  
+   		<script type="text/javascript" src="js/jquery-2.2.4.min.js">
+   		</script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<!--<script src="js/myApp.js"></script>
+		<script src="js/myCtrl.js"></script>-->
+    	<script>
+			var app = angular.module("myApp",[]);
+			
+			app.filter('searchFilter',function(){
+			
+				return function(arr,searchname){
+					
+					if(searchname == "" || typeof(searchname) == "undefined")
+						return arr;
+						
+					var res = [];
+					
+					searchname = searchname.toLowerCase();
+					
+					angular.forEach(arr,function(item){
+						if(item.name.toLowerCase().indexOf(searchname) != -1)
+							res.push(item);
+						
+					});
+					return res;
+				}
+				
+			});
+			
+			app.controller('myController', function($scope) {
+				
+				$scope.items = [];
+				$scope.searchBtn = function(){
+					
+					$scope.items = [
+						{
+							name: 'Lily',
+							age: '30'
+						},
+						{
+							name: 'Lucy',
+							age: '30'
+						},
+						{
+							name: 'Jone',
+							age: '80'
+						}
+					
+					];
+				
+				}
+			});
+			
+		
+    	</script>  
+  </body>
+  </html>
+  
