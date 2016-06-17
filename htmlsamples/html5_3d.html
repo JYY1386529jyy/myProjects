@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>
+      html3 3d
+    </title>
+    <style>
+    	.container{
+			width:400px;
+			height:506px;
+			position: relative;
+			-webkit-perspective: 1000px;
+			-moz-perspective: 1000px;
+			perspective: 1000px;
+			margin:20px auto;			
+		}
+		
+		.film{
+			width:100%;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			/*-webkit-transform: translateZ(-130px);
+			-moz-transform: translateZ(-130px);
+			transform: translateZ(-130px);*/
+			-webkit-transition: -webkit-transform 10ms;
+			-moz-transition: -moz-transform 10ms;
+			transition: transform 10ms;
+		}
+		
+		.container:hover .film{
+			/*-webkit-transform: rotateY(-78deg) translateZ(20px);
+			-moz-transform: rotateY(-78deg) translateZ(20px);
+			transform: rotateY(-78deg) translateZ(20px);*/
+			-webkit-transform: rotateY(-90deg);
+			-moz-transform: rotateY(-90deg);
+			transform: rotateY(-90deg);
+			z-index:5;
+			
+		}
+		
+		.face{
+			position:absolute;
+			-webkit-backface-visibility:hidden;
+			-moz-backface-visibility:hidden;
+			backface-visibility:hidden;
+			/*-webkit-transform: translateZ(130px);
+			-moz-transform: translateZ(130px);
+			transform: translateZ(130px);*/
+		}
+		
+		.back{
+			width:400px;
+			height:506px;
+			/*-webkit-transform: rotateY(90deg) translateZ(130px);
+			-moz-transform: rotateY(90deg) translateZ(130px);
+			transform: rotateY(90deg) translateZ(130px);*/
+			-webkit-transform: rotateY(90deg);
+			-moz-transform: rotateY(90deg);
+			transform: rotateY(90deg);
+			background: #3b3b3b;
+			background: -webkit-linear-gradient(top,
+										rgba(0,0,0,0.65) 0%,
+										rgba(0,0,0,0) 100%);
+		  
+		   text-align:center;
+		   font-size:16px;
+		   color:#ffffff;
+		   z-index:0;
+		}
+		
+		/*.container:hover .back{
+			height:556px;
+			
+		}*/
+    
+    </style>
+   </head>
+  
+	<body>
+    
+    	<section class="container">
+        	<div class="film">
+            	<div class="face front">
+                	<img src="img/cats.jpg" alt="the film poster"/>
+                </div>
+            	<div class="face back"><p>简介如下：该影片是由某某公司出版的</p></div>
+            </div>
+        
+        </section>
+    
+    </body>
+</html>

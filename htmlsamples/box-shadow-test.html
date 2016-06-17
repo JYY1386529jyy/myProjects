@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>
+     box-shadow
+    </title>
+    <style>
+    	.icon-up{display:inline-block; width:20px; height:20px; background:url(icon.gif) no-repeat center;}
+		:root .icon-up{background-image:none;}
+		.icon-up::before{
+    		content: ''; 
+			position: absolute; 
+			margin: 5px 0 0 9px; 
+    		height: 4px; 
+			border-left: 1px solid #bdbdbd; 
+    		box-shadow: 1px 1px #bdbdbd, 2px 2px #bdbdbd, 3px 3px #bdbdbd, 4px 4px #bdbdbd, 5px 5px #bdbdbd, 
+               -1px 1px #bdbdbd, -2px 2px #bdbdbd, -3px 3px #bdbdbd, -4px 4px #bdbdbd, -5px 5px #bdbdbd;     
+        }
+    
+    </style>
+
+   </head>
+  
+	<body>
+    
+    	<i class="icon-up"></i>
+
+  </body>
+  </html>
+  
